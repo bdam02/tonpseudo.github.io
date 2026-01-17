@@ -1,100 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Personal Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>System Status</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Main styles -->
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #ffffff;
-      text-align: center;
-    }
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #3b82f6;
+}
 
-    header {
-      padding: 80px 20px;
-    }
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
 
-    p {
-      font-size: 1.1em;
-      opacity: 0.9;
-    }
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 30px;
+  border-bottom: 1px solid #1f2933;
+}
 
-    section {
-      padding: 60px 20px;
-    }
+nav h1 {
+  font-size: 1.1rem;
+}
 
-    .card {
-      max-width: 600px;
-      margin: auto;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    }
+nav a {
+  color: var(--muted);
+  margin-left: 20px;
+  text-decoration: none;
+}
 
-    button {
-      margin-top: 20px;
-      padding: 12px 25px;
-      font-size: 1em;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      background: #00c6ff;
-      color: #000;
-    }
+nav a:hover {
+  color: var(--text);
+}
 
-    button:hover {
-      background: #00a6d6;
-    }
+/* Layout */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
 
-    footer {
-      padding: 20px;
-      font-size: 0.9em;
-      opacity: 0.6;
-    }
-  </style>
+/* Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #1f2933;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid #1f2933;
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9em;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Welcome</h1>
-    <p>This website is hosted on GitHub Pages</p>
-  </header>
+<nav>
+  <h1>My Platform</h1>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Status</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
 
-  <section>
+<div class="container">
+
+  <h2>System Status</h2>
+  <p style="color: var(--muted); max-width: 600px;">
+    This page shows the current operational status of the platform services.
+  </p>
+
+  <div class="grid">
+
     <div class="card">
-      <h2>About Me</h2>
-      <p>
-        I am learning web development and building small projects using HTML, CSS, and JavaScript.
-      </p>
-
-      <button onclick="showMessage()">Click Here</button>
-      <p id="message"></p>
+      <h3>API</h3>
+      <div class="status">
+        <div class="dot"></div>
+        <span>Operational</span>
+      </div>
     </div>
-  </section>
 
-  <footer>
-    © 2026 – Personal Website
-  </footer>
+    <div class="card">
+      <h3>Website</h3>
+      <div class="status">
+        <div class="dot"></div>
+        <span>Operational</span>
+      </div>
+    </div>
 
-  <!-- JavaScript logic -->
-  <script>
-    function showMessage() {
-      const messageElement = document.getElementById("message");
-      messageElement.textContent = "Thank you for visiting this website!";
-    }
-  </script>
+    <div class="card">
+      <h3>Authentication</h3>
+      <div class="status">
+        <div class="dot"></div>
+        <span>Operational</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Database</h3>
+      <div class="status">
+        <div class="dot"></div>
+        <span>Operational</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 My Platform. All rights reserved.
+</footer>
+
+</body>
+</html>
+
 
 </body>
 </html>
